@@ -5,14 +5,15 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \" ionic serve --lab \" \"cd server && npm start\" ",
+    "start": "concurrently \" ionic serve --lab \" \"cd server && node server.js\" ",
     "app": "ng serve",
-    "build": "ng build",
+    "app-build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "npm install && npm install --prefix server"
   },
+  "heroku-run-build-script": true,
   "private": true,
   "dependencies": {
     "-": "0.0.1",
