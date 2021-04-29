@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
-  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=TRUE npm install --prefix server && npm install",
+
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \" ionic serve --lab \" \"cd server && node server.js\" ",
-    "app": "ng serve",
-    "app-build": "ng build",
+    "dev": "concurrently \" ionic serve --lab \" \"cd server && node server.js\" ",
+    "start": "ng serve",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=TRUE npm install --prefix server && npm install"
   },
   "heroku-run-build-script": true,
   "private": true,
