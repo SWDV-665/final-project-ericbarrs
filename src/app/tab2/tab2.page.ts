@@ -9,10 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class Tab2Page {
   title = "Todo App"
   tasks = []
+  path = 'https://swdv-finalserver.herokuapp.com'
   constructor(    
     private http: HttpClient
     ) {
-    this.http.get('http://localhost:5000/todos/task')
+    this.http.get(`${this.path}/todos/task`)
     .subscribe((response:[]) => {
     this.tasks = []
     response.forEach((arr:any)=>{

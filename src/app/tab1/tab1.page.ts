@@ -11,6 +11,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class Tab1Page {
   title = "Todo App"
+  path = 'https://swdv-finalserver.herokuapp.com'
   public tasks:any = []
 
   constructor(
@@ -20,7 +21,7 @@ export class Tab1Page {
     private camera: Camera
     ) {
       
-    this.http.get('http://localhost:5000/todos/task')
+    this.http.get(`${this.path}/todos/task`)
       .subscribe((response:[]) => {
       this.tasks = response
     });
@@ -35,7 +36,7 @@ export class Tab1Page {
   }
 
   async postData(obj){
-    this.http.post('http://localhost:5000/todos/task',{
+    this.http.post(`${this.path}/todos/task`,{
       ...obj
     })
     .subscribe((response) => {
@@ -44,7 +45,7 @@ export class Tab1Page {
   }
   async editData(obj:any, index){
       console.log(obj)
-      this.http.put(`http://localhost:5000/todos/task/${obj._id}`,{
+      this.http.put(`${this.path}/todos/task/${obj._id}`,{
       ...obj
     })
     .subscribe((response:any) => {
@@ -54,7 +55,7 @@ export class Tab1Page {
   }
 
   async deleteData(obj:any, index){
-    this.http.delete(`http://localhost:5000/todos/task/${obj._id}`,{
+    this.http.delete(`${this.path}/todos/task/${obj._id}`,{
   })
   .subscribe((response:any) => {
     this.tasks.splice(index,1)
